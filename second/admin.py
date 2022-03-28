@@ -1,4 +1,5 @@
 from django.contrib import admin
-from second.models import Phone_number
+from second.models import Phone_number, Subscribe
 
-admin.site.register(Phone_number)
+lst = [Phone_number, Subscribe]
+admin.site.register(lst)
