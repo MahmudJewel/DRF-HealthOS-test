@@ -20,3 +20,12 @@ class Subscribe(models.Model):
     
     def __str__(self):
         return self.phone
+
+class Company(models.Model):
+    name = models.CharField(max_length=250)
+    def __str__(self):
+        return self.name
+
+class Company_Phone_List(models.Model):
+    name = models.ForeignKey(Company, on_delete=models.CASECADE)
+    phone = models.ForeignKey(Phone_number, on_delete=models.CASCADE)
