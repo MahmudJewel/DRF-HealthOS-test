@@ -5,4 +5,9 @@ from second.models import Phone_number, Subscribe
 class PhoneSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Phone_number
-		fields = '__all__'  # or fileds = [‘filed1’, ‘field2’,…...]
+		fields = '__all__' 
+
+class SubscribeSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Subscribe
+		fields = '__all__' 
