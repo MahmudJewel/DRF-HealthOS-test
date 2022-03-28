@@ -8,7 +8,7 @@ router = DefaultRouter()
 router.register('phone', phoneViewset, basename='phone')
 router.register('sub', subscribeViewset, basename='sub')
 router.register('company', CompanyViewset, basename='company')
-router.register('company-phone', Company_Phone_ListViewset, basename='company')
+router.register('company-phone', Company_Phone_ListViewset, basename='company-phone')
 
 urlpatterns = [
     path('', home, name='home'),
