@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from second.models import Phone_number, Subscribe
-from second.serializers import PhoneSerializer, SubscribeSerializer
+from second.models import Phone_number, Subscribe, Company, Company_Phone_List
+from second.serializers import PhoneSerializer, SubscribeSerializer, CompanySerializer, Company_Phone_ListSerializer
 from rest_framework import viewsets
 
 # Create your views here.
@@ -19,3 +19,11 @@ class phoneViewset(viewsets.ModelViewSet):
 class subscribeViewset(viewsets.ModelViewSet):
 	serializer_class = SubscribeSerializer
 	queryset = Subscribe.objects.all()
+
+class CompanyViewset(viewsets.ModelViewSet):
+	serializer_class = CompanySerializer
+	queryset = Company.objects.all()
+
+class Company_Phone_ListViewset(viewsets.ModelViewSet):
+	serializer_class = Company_Phone_ListSerializer
+	queryset = Company_Phone_List.objects.all()
