@@ -3,12 +3,14 @@ from django.core.validators import RegexValidator
 
 # Create your models here.
 
+# bangladeshi phone number field
 class Phone_number(models.Model):
     phone_regex = RegexValidator(regex=r'^(?:\+88|88)?(01[3-9]\d{8})$', message="Phone number must be entered in the format: '+8801XXXXXX'. Up to 14 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=20, unique=True) # custom validation is used rather than phone field. as Phone field has large memory size. 
     def __str__(self):
         return self.phone_number
-    
+
+# sunscriptions table for fixed plans
 class Subscribe(models.Model):
     planList=[('Bronze', 'Globalnet Bronze'),
                 ('Silver', 'Globalnet Silver'),
@@ -21,11 +23,13 @@ class Subscribe(models.Model):
     def __str__(self):
         return self.phone
 
+# company account
 class Company(models.Model):
     name = models.CharField(max_length=250)
     def __str__(self):
         return self.name
 
+# A company has multiple phone number
 class Company_Phone_List(models.Model):
     name = models.ForeignKey(Company, on_delete=models.CASCADE)
     phone = models.ForeignKey(Phone_number, on_delete=models.CASCADE)
