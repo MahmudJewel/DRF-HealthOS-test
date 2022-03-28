@@ -24,6 +24,7 @@ class Company_Phone_ListSerializer(serializers.ModelSerializer):
 		model = Company_Phone_List
 		fields = ['name', 'phone']
 
+	# create is ovewritten as it has complex relationships 
 	def create(self, validated_data):
 		phone = validated_data.pop('phone')
 		phone_obj = Phone_number.objects.create(**phone)
