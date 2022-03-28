@@ -9,6 +9,7 @@ from rest_framework import viewsets
 def home(request):
     return HttpResponse('Hello World!!!')
 
+# viewsets for create, update and delete phone numbers
 class phoneViewset(viewsets.ModelViewSet):
 	"""
 	This viewset automatically provides `list`, `create`, `retrieve`, `update` and `destroy` actions.
@@ -16,14 +17,17 @@ class phoneViewset(viewsets.ModelViewSet):
 	serializer_class = PhoneSerializer
 	queryset = Phone_number.objects.all()
 
+# viewsets for subscriptions plans
 class subscribeViewset(viewsets.ModelViewSet):
 	serializer_class = SubscribeSerializer
 	queryset = Subscribe.objects.all()
 
+# It will add company name
 class CompanyViewset(viewsets.ModelViewSet):
 	serializer_class = CompanySerializer
 	queryset = Company.objects.all()
 
+# This will add multiple phone numbers for specific company
 class Company_Phone_ListViewset(viewsets.ModelViewSet):
 	serializer_class = Company_Phone_ListSerializer
 	queryset = Company_Phone_List.objects.all()
