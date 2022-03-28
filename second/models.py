@@ -15,7 +15,7 @@ class Subscribe(models.Model):
                 ('Gold', 'Globalnet Gold'),]  
     
     plan = models.CharField(max_length=20, choices=planList, default='Bronze') # As the plans are fixed, so I used choices field
-    phone = models.ForeignKey(Phone_number, on_delete=models.CASCADE)
+    phone = models.OneToOneField(Phone_number, on_delete=models.CASCADE)
     dateOfBuy = models.DateField(auto_now=True)
     
     def __str__(self):
